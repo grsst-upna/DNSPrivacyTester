@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+        <head>
+              <title>DNSPrivacy Tester </title>
+              <meta charset="utf-8">
+              <meta name="author" content="Unavarra TLM">
+              <meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+              <link rel="stylesheet" href="bootstrap.min.css">
+              <link rel="stylesheet" href="tlm.css">
+        </head>
+        <body style="background-color:#444;color:lightgray">
+          <div class="jumbotron">
+            <div class="container">
+                      <h1 class="head-title" onclick="reini();"> Privacy Tester</h1>
+              <p></p>
+
+                <div class="links">
+                  <a id="language" onclick="chang();" style="color:#007bff;cursor:pointer;"></a>
+                </div>
+                <div id="tip" style="font-size:50%"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg text-center">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header" style="background-color: #222;">
+                  <p class="poptitle">DNSPrivacy Tester</p>
+                </div>
+                <div class="modal-body" style="background-color: #444;">
+                  <p class="poptext"></p>
+                </div>
+                <div class="modal-footer text-center" style="background-color: #222;">
+                  <button type="button" class="btn btn-default boton" data-dismiss="modal"></button>
+                </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        <div id="body_main">
+          <div class="container text-center" style="margin-top:3%">
+            <button id="main" class="btn   boton" ></button>
+          </div>
+        </div>
+        <div id="gbas" class="container">
+          <div class="container">
+            <div class="bar-title"></div>
+            <div class="progress" >
+              <div id="probar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" data-value="6.25" style="width: 6.25%"></div>
+            </div>
+          </div>
+          <div id="wait" class="container" style="margin-bottom:0%;font-size: 115%"></div>
+          <div class="btn-group container text-center" style="margin-top:3%;">
+            <button class="btn  display_collapse btn-secondary" disabled onclick="hide(0);"></button>
+            <button class="btn  display_collapse  btn-secondary" disabled onclick="hide(1);" style="margin-left:9.5%"></button>
+          </div>
+          <div class="container text-center" style="margin-top:3%">
+            <button id="mlog" class="btn   boton" onclick="lg();"></button>
+          </div>
+        </div>
+        <div id="global" class="container" style="margin-bottom:3%;">
+          <div id="bar"></div>
+        </div>
+
+        <div id="gpro">
+          <div class="container">
+          <div id="pie_ti" class="bar-title text-center" style="margin-bottom:-2%;display:none;"></div>
+          </div>
+          <div class="container ">
+            <div id="pie1"  ></div>
+          </div>
+          <div id="chart" class="container"></div>
+        </div>
+        <div id="logs" style="display:none;margin-bottom:5%;">
+          <div class="container">
+            <div class="tabla">
+              <div class="item1"></div>
+              <div class="item2"></div>
+                <div class="item3 scroll ">
+                  <div  class="data1 ">
+                  </div>
+                  <div  class="data2 ">
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- jQuery library -->
+          <script src="jquery-3.2.1.min.js"></script>
+          <!-- Latest compiled JavaScript -->
+          <script src="bootstrap.min.js"></script>
+          <script src="plotly-latest.min.js"></script>
+          <script type="text/javascript" src="caracter-general.js" ></script>
+          <script type="text/javascript" src="graficas-pro.js" ></script>
+          <script type="text/javascript" src="graficas-basic.js" ></script>
+          <script type="text/javascript" src="tlm.js" ></script>
+
+
+        </body>
+</html>

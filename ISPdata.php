@@ -11,7 +11,7 @@
 
 
 
-        $dbdescr='mysql:dbname=db;host=dbserver;port=3306;charset=UTF8';
+        $dbdescr='mysql:dbname=db;host=dbserver;port=0000;charset=UTF8';
 
         try {
 

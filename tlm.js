@@ -234,7 +234,7 @@ async function send_req(){
 //Function to send the results to be stored in a file
 function sendResults(result,url2){
 
-  let url="analisis.php?result="+result+"&domain="+url2;
+  let url="analisys.php?result="+result+"&domain="+url2;
   let req = new XMLHttpRequest();
 
   if (!req) return false;

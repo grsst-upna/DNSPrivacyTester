@@ -1,7 +1,7 @@
 <?php
 
-		//Generate a session to store variables
-		session_set_cookie_params(300);
+	//Generate a session to store variables
+	session_set_cookie_params(300);
   	session_start();
   	session_regenerate_id();
 
@@ -112,8 +112,8 @@
       }else{
       	$ip=$_SERVER['REMOTE_ADDR'];
 
-				//We do a comprobation of wether there have been more than 20 tests in the last half an hour to see if an IP
-				//is doing to many tests in one time
+	//We do a comprobation of wether there have been more than 20 tests in the last half an hour to see if an IP
+	//is doing to many tests in one time
       	$Ntests_time=time()-1800;
 
       	$stmt = $db  ->prepare( "SELECT TPFinal FROM DNSusers WHERE ip='$ip' AND TPFinal>$Ntests_time" );
@@ -124,7 +124,7 @@
       		die("10 intentos en menos de 60 mins.");
       	}
 
-				//We introduce data into the database in case every condition is fullfilled
+	//We introduce data into the database in case every condition is fullfilled
 
       	$_SESSION['last_time']=time();
 
@@ -135,7 +135,7 @@
   }
   $time_request=$_GET['result'];
 
-	//We do a check of the type of query that corresponds to the obtained time
+//We do a check of the type of query that corresponds to the obtained time
 
   if($_SESSION['samples']>0){
 
@@ -143,7 +143,7 @@
 
   }else{
 
-		//If not we start the test
+	//If not we start the test
 
   	$_SESSION['samples']=1;
 
@@ -178,7 +178,7 @@ function introduce_data($ip,$db){
 
           $domain=$_GET['domain'];
 
-					//We use this API to retrieve information about the IP that connected
+	//We use this API to retrieve information about the IP that connected
 
           $web= "http://ip-api.com/json/$ip";
 
@@ -217,7 +217,7 @@ function introduce_data($ip,$db){
 
           $browser = $_SERVER['HTTP_USER_AGENT'];
 
-					//We use the Wolfcast tool to dtect the browser being used
+	//We use the Wolfcast tool to dtect the browser being used
 
           require_once('BrowserDetection.php');
 
@@ -271,11 +271,11 @@ function introduce_data($ip,$db){
           $as_m="bb";
         }
 
-				//For some ISPs we use the organization and for other the autonomous systen information
+	//For some ISPs we use the organization and for other the autonomous systen information
 
         $org_m=strtoupper($chain_org[0]);
 
-				if($org_m == $ISP_users[0]){
+	if($org_m == $ISP_users[0]){
           $ISP_user=$org_m;
         }elseif($as_m == $ISP_users[0]){
           $ISP_user=$as_m;
@@ -303,24 +303,24 @@ function introduce_data($ip,$db){
 
 		$samples_number=$_SESSION['samples'];
 		$samples_number=$samples_number+1;
-    $_SESSION['samples']=$samples_number;
+    		$_SESSION['samples']=$samples_number;
 
-    $domain=$_GET['domain'];
+   		$domain=$_GET['domain'];
 
 		 date_default_timezone_set('Europe/Madrid');
-        $fecha = date("d")."-".date("m")."-".date("Y")." ".date("H").":".date("i").":".date("s");
+		$fecha = date("d")."-".date("m")."-".date("Y")." ".date("H").":".date("i").":".date("s");
 
-        $tp=time();
+		$tp=time();
 
-        $code = $_SESSION[$domain];
+		$code = $_SESSION[$domain];
 
-        $r=$db -> prepare("UPDATE DNSusers SET TPFinal =$tp WHERE id = '$code'");
-        $r -> execute();
-        $r=$db -> prepare("UPDATE DNSusers SET FFinal ='$fecha' WHERE id = '$code'");
-        $r -> execute();
+		$r=$db -> prepare("UPDATE DNSusers SET TPFinal =$tp WHERE id = '$code'");
+		$r -> execute();
+		$r=$db -> prepare("UPDATE DNSusers SET FFinal ='$fecha' WHERE id = '$code'");
+		$r -> execute();
 
 
-//We have different thresholds depending on the type of operating system that is being used to perform the test of the network
+		//We have different thresholds depending on the type of operating system that is being used to perform the test of the network
 
 		if($_SESSION['OS']=="Windows"){
 
@@ -386,7 +386,7 @@ function introduce_data($ip,$db){
 
 			}
 
-			//We have only a threshold with different values for Android and Macintosh
+		//We have only a threshold with different values for Android and Macintosh
 		}else if($_SESSION['OS']=="Android"){
 
 			$threshold=0.6;
